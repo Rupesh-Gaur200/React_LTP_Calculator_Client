@@ -11,30 +11,36 @@ function Login (){
      const navigate =useNavigate()
   
 
+     const userNamee = 'ashwanichaubey28@gmail.com'; // Replace with actual username
+     const Passwordd = 'Ashwani@123'; // Replace with actual password
+     const credentials = btoa(`${userName}:${Password}`);
+     console.log(`Basic ${credentials}`);
   async function handleClick(e){
           
         e.preventDefault()
-        const credentials = btoa(`${userName}:${Password}`);
+     
 
-    //     try {
-    //       const response = await axios.get('http://api.ltpcalculator.com/currentUser',{
-    //         headers: {
-    //           'Authorization': `Basic ${credentials}`,
-    //           'Content-Type': 'application/json',
-    //         },
-    //       });
+        try {
+          const response = await axios.get('/api/currentUser',{
       
-    //      console.log(response.status)
-          
-    //     } catch (error) {
-    //       console.error('Error:', error.response ? error.response.statusText : error.message);
-    //     }
-    //   };
+            headers: {
+              'Authorization': `Basic ${credentials}`,
+              'Content-Type': '*/*',
+            },
 
-     navigate('/home')
+          });
+      console.log(response)
+          
+          
+        } catch (error) {
+          console.error('Error:', error.response ? error.response.statusText : error.message);
+        }
+      };
+
+     
       
      
-  }
+  
 
 
 

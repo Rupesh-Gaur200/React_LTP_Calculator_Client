@@ -51,10 +51,10 @@ function Header (){
 
         {/* Middle Navbar Ends Here */}
 
-        <div className='bg-slate-200 w-full h-10 px-10 flex items-center gap-4'>
+        <div className='bg-slate-200 w-full h-10 px-5 flex items-center '>
 
             <div className=''>
-                <select className='bg-slate-900  text-slate-300 mx-5' >
+                <select className='bg-slate-900 px-2 py-[2px] rounded-md  text-slate-300 mx-3 cursor-pointer' >
                 <option value="TataSteel">TataSteel</option>
                 <option value="saab">Nifity50</option>
                 <option value="mercedes">Adani ports</option>
@@ -62,19 +62,20 @@ function Header (){
                  </select>
 
 
-                 <select className='bg-slate-900  text-slate-300 mx-5'>  <option value="TataSteel">TataSteel</option>
-                <option value="saab">Nifity50</option>
-                <option value="mercedes">Adani ports</option>
-                <option value="audi">Hdfc</option>
+                 <select className='bg-slate-900 px-2 py-[2px] rounded-md  text-slate-300 mx-3 cursor-pointer'>  <option value="TataSteel">30-12-2024</option>
+                <option value="saab">31-12-2024</option>
+                <option value="mercedes">1-2-2024</option>
+                <option value="audi">2-2-2024</option>
                 </select>
-                 <select className='bg-slate-900  text-slate-300 mx-5'>  <option value="TataSteel">TataSteel</option>
-                <option value="saab">Nifity50</option>
-                <option value="mercedes">Adani ports</option>
-                <option value="audi">Hdfc</option></select>
-                 <select className='bg-slate-900  text-slate-300 mx-5'>  <option value="TataSteel">TataSteel</option>
-                <option value="saab">Nifity50</option>
-                <option value="mercedes">Adani ports</option>
-                <option value="audi">Hdfc</option></select>
+
+
+                 <select className='bg-slate-900 px-2 py-[2px] rounded-md text-slate-300 mx-3 cursor-pointer'>  <option value="TataSteel">ATM</option>
+                <option value="All">All</option>
+                </select>
+
+
+                 <select className='bg-slate-900 px-2 py-[2px] rounded-md text-slate-300 mx-3 cursor-pointer'>  <option value="TataSteel">Spot</option>
+              </select>
 
             </div>
 
