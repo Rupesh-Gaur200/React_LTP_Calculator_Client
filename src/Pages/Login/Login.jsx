@@ -40,7 +40,7 @@ function Login (){
 
     return (
         <div className=" W-full h-screen bg-[#212529] flex  flex-col justify-center items-center">
-            <div>
+            <div className="py-5">
                 <a>
                     <img src="https://alpha.ltpcalculator.com/theme/images/logoltp.png"></img>
                 </a>
@@ -52,9 +52,9 @@ function Login (){
                 <label className="text-2xl font-semibold">Login to Your Account </label>
                 <input className="w-full h-14 border-2 border-black px-4 rounded-md" type="text" placeholder="UserName" value={userName} onChange={(e)=>{setUsername(e.target.value)}}></input>
                 <input className="w-full h-14 border-2 border-black px-4  rounded-md" type='text' placeholder="Password" value={Password} onChange={(e)=>{setPassword(e.target.value)}}></input>
-                <div className="w-full  flex justify-between">
-                      <a>Forget Password ?</a>
-                      <button onClick={handleClick} className=" w-24 h-10 bg-purple-400 rounded-md">Login</button>
+                <div className="w-full  flex justify-between items-center">
+                      <a className="text-[#ff5a00]">Forget Password ?</a>
+                      <button onClick={handleClick} className=" w-24 h-10 bg-[#ff5a00] rounded-md">Login</button>
                     </div>
                
 
