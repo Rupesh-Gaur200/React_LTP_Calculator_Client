@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import axios  from "axios";
 import { useQuery } from "react-query";
 
-function Symbol (){
+function Symbol ({getSymbol}){
     const[ selectedValue , setSelectedValue]=useState("")
      
     const GetSybmol = async () => {
@@ -11,11 +11,39 @@ function Symbol (){
         return response.data;
       };
 
+      const { data:symbol , error, isLoading } = useQuery('symbol', GetSybmol);
+
+      function sortByCategoryAndName(array) {
+        return array.sort((a, b) => {
+           
+            if (a.category < b.category) {
+                return -1;
+            }
+            if (a.category > b.category) {
+                return 1;
+            }
+    
+           
+            if (a.name < b.name) {
+                return -1;
+            }
+            if (a.name > b.name) {
+                return 1;
+            }
+            return 0;
+        });
+    }
+
+    const sortedData = sortByCategoryAndName(symbol);
+
+
 
       useEffect(()=>{
 
-        const { data:symbol , error, isLoading } = useQuery('symbol', GetSybmol);
-      })
+       
+         getSymbol(selectedValue)
+
+      },[selectedValue])
       
 
  
@@ -27,9 +55,9 @@ function Symbol (){
             
         onChange={(e)=>setSelectedValue(e.target.value)}>
 
-            {symbol?.map((item, index)=>{
+            {sortedData?.map((item, index)=>{
                 return(
-                    <option value={item.symbol}>{item.symbol}</option>
+                    <option key={index} value={item.symbol} >{item.symbol}</option>
                 )
             })}
       

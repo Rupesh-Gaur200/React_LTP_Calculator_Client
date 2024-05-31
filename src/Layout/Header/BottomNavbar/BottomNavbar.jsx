@@ -1,7 +1,7 @@
 
 import { useQuery } from 'react-query';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 import Symbol from './Button/Symbol';
 
 
@@ -9,18 +9,32 @@ function BottomNavbar (){
 
        
 
-       
+    const [value , setValue]=useState("")
+    
+    function getSymbol (selectedValue){
+
+      setValue(selectedValue)
+      value.toString().toUpperCase()
+
+    }
    
+  
        
     const GetExpiryDate = async ()=>{
-        const response = await axios.get('/api/optionChain/symbol-expiry',{
-            params:{
-                symbol:"TATAPOWER"
-            }
-        })
-
-       console.log(response.data)
+      try {
+        console.log("Making API call with value:", value); 
+        const response = await axios.get(`/api/optionChain/symbol-expiry?symbol=${value}`);
+        console.log("API Response:", response.data); 
+    } catch (error) {
+        console.error("Error fetching expiry date:", error);
     }
+    }
+
+    useEffect(() => {
+      if (value) {
+          GetExpiryDate();
+      }
+  }, [value]);
 
     // const { data, error, isLoading } = useQuery('symbol', GetSybmol); 
 
@@ -30,11 +44,11 @@ function BottomNavbar (){
    
 
     // Fetch expiry data when selectedValue changes
-    const { data: expiryData } = useQuery(
-      ['expiry'],
-      GetExpiryDate
+    // const { data: expiryData } = useQuery(
+    //   ['expiry'],
+    //   GetExpiryDate
     
-    );
+    // );
   
  
 
@@ -48,7 +62,7 @@ function BottomNavbar (){
 
         <div className=''>
            
-            <Symbol></Symbol>
+            <Symbol getSymbol={getSymbol}></Symbol>
 
 
              {/* <select className='bg-slate-900 px-2 py-[2px] rounded-md  text-slate-300 mx-3 cursor-pointer'> 
