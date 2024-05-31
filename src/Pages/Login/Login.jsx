@@ -1,20 +1,22 @@
-import { StrictMode, useState } from "react"
+import { StrictMode, useState ,useEffect} from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
-
-import BgImage from './LoginPageAssets/newloginbg.jpg'
-
 import sirImage from './LoginPageAssets/sir3.png'
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import { useContext } from "react";
+import { UserContext } from "../../Context/Context";
 
 function Login (){
      
     const [userName , setUsername] =useState("")
 
     const [Password , setPassword] = useState("")
+
+    const[userr , setUserr]=useState()
    
      const navigate =useNavigate()
+     const userState =useContext(UserContext)
   
 
 
@@ -34,8 +36,16 @@ function Login (){
             },
 
           });
-      console.log(response)
+
+      
+      
+          
+
       if(response.status==200){
+      const userdata= response.data
+      console.log(userdata)
+      userState.setUser(userdata);
+  
         navigate('/home')
       }
       
@@ -50,11 +60,9 @@ function Login (){
 
       };
 
-     
       
-     
   
-
+     
 
 
     return (

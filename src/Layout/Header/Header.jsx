@@ -3,12 +3,22 @@ import { Tooltip } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import { useNavigate } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { UserContext } from "../../Context/Context"
+import { useContext, useState } from "react";
+import DashBoard from '../../Pages/Home/DashBoard';
+import BottomNavbar from './BottomNavbar/BottomNavbar';
+
 function Header (){
 
   const navigate = useNavigate()
     function handleLogout(e){
      navigate("/")
     }
+
+    const userState = useContext(UserContext)
+    console.log(userState.user)
+    
+   
 
            
     return(
@@ -18,10 +28,10 @@ function Header (){
         <div className="w-full h-5 bg-slate-600 flex py-4 px-10  items-center">
             <div className="flex items-center">
             <h1 className="text-[#fff] text-sm">Welcome Back </h1>
-            <strong className="text-[#fff] mx-2"> Rupesh Gaur</strong>
+            <strong className="text-[#fff] mx-2">{userState.user?.user.username}</strong>
             </div>
             <h1 className="text-[#fff] text-sm">! Your Subscription will be Expire on </h1>
-            <strong className="mx-2 text-[#fff]">2024-10-12</strong>
+            <strong className="mx-2 text-[#fff]">{userState.user?.userSubscription.subscriptionEndDate.replace("T18:30:00.000+00:00","")}</strong>
             
         </div>
 
@@ -51,41 +61,13 @@ function Header (){
 
         {/* Middle Navbar Ends Here */}
 
-        <div className='bg-slate-200 w-full h-10 px-5 flex items-center '>
-
-            <div className=''>
-                <select className='bg-slate-900 px-2 py-[2px] rounded-md  text-slate-300 mx-3 cursor-pointer' >
-                <option value="TataSteel">TataSteel</option>
-                <option value="saab">Nifity50</option>
-                <option value="mercedes">Adani ports</option>
-                <option value="audi">Hdfc</option>
-                 </select>
+       <BottomNavbar></BottomNavbar>
 
 
-                 <select className='bg-slate-900 px-2 py-[2px] rounded-md  text-slate-300 mx-3 cursor-pointer'>  <option value="TataSteel">30-12-2024</option>
-                <option value="saab">31-12-2024</option>
-                <option value="mercedes">1-2-2024</option>
-                <option value="audi">2-2-2024</option>
-                </select>
 
-
-                 <select className='bg-slate-900 px-2 py-[2px] rounded-md text-slate-300 mx-3 cursor-pointer'>  <option value="TataSteel">ATM</option>
-                <option value="All">All</option>
-                </select>
-
-
-                 <select className='bg-slate-900 px-2 py-[2px] rounded-md text-slate-300 mx-3 cursor-pointer'>  <option value="TataSteel">Spot</option>
-              </select>
-
-            </div>
-
+        {/* <DashBoard></DashBoard> */}
         </div>
-
-
-
-
-
-        </div>
+       
     )
 
 }
