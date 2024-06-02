@@ -14,7 +14,7 @@ function Symbol ({getSymbol}){
       const { data:symbol , error, isLoading } = useQuery('symbol', GetSybmol);
 
       function sortByCategoryAndName(array) {
-        return array.sort((a, b) => {
+        return array?.sort((a, b) => {
            
             if (a.category < b.category) {
                 return -1;

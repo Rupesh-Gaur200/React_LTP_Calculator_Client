@@ -6,6 +6,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { useContext } from "react";
 import { UserContext } from "../../Context/Context";
+import TextField from '@mui/material/TextField';
 
 function Login (){
      
@@ -105,8 +106,9 @@ function Login (){
             <form onSubmit={handleClick} className="flex flex-col  w-[80%] h-[90%] items-center justify-evenly ">
 
                 <label className="text-2xl font-semibold">Login to Your Account </label>
-                <input   required title="Please Enter Your UserName" className="w-full h-14 border-2 border-black px-4 rounded-md" type="text" placeholder="UserName" value={userName} onChange={(e)=>{setUsername(e.target.value)}}></input>
-                <input required title="Please Enter Your Password" className="w-full h-14 border-2 border-black px-4  rounded-md" type='text' placeholder="Password" value={Password} onChange={(e)=>{setPassword(e.target.value)}}></input>
+                <TextField required className="w-full" id="outlined-basic" label="Username" variant="outlined" value={userName} onChange={(e)=>{setUsername(e.target.value)}} />
+                <TextField  required className="w-full" id="outlined-basic" label="Password" variant="outlined" value={Password} onChange={(e)=>{setPassword(e.target.value)}} />
+                {/* <input required title="Please Enter Your Password" className="w-full h-14 border-2 border-black px-4  rounded-md" type='text' placeholder="Password" value={Password} onChange={(e)=>{setPassword(e.target.value)}}></input> */}
                 <div className="w-full  flex flex-col justify-between items-center gap-4">
                 <FormControlLabel required control={<Checkbox />} label="I have read and agreed to Terms & Conditions" />
                       <button type="submit" className=" w-24 h-10 bg-[#ff5a00] rounded-md">Login</button>

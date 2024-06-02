@@ -7,6 +7,7 @@ import { UserContext } from "../../Context/Context"
 import { useContext, useState } from "react";
 import DashBoard from '../../Pages/Home/DashBoard';
 import BottomNavbar from './BottomNavbar/BottomNavbar';
+import LastNavbar from './LastNavbar/LastNavbar';
 
 function Header() {
 
@@ -63,9 +64,9 @@ function Header() {
 
       <BottomNavbar></BottomNavbar>
 
+      <LastNavbar></LastNavbar>
 
-
-      {/* <DashBoard></DashBoard> */}
+      <DashBoard></DashBoard>
     </div>
 
   )

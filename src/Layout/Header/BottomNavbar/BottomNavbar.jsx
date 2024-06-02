@@ -3,11 +3,13 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import { useState , useEffect} from 'react';
 import Symbol from './Button/Symbol';
+import ExpiryDate from './Button/ExpiryDate';
 
 
 function BottomNavbar (){
 
-       
+
+    const [expiryDate , setExpiryDate]=useState([])  
 
     const [value , setValue]=useState("")
     
@@ -25,6 +27,7 @@ function BottomNavbar (){
         console.log("Making API call with value:", value); 
         const response = await axios.get(`/api/optionChain/symbol-expiry?symbol=${value}`);
         console.log("API Response:", response.data); 
+        setExpiryDate(response.data)
     } catch (error) {
         console.error("Error fetching expiry date:", error);
     }
@@ -58,11 +61,14 @@ function BottomNavbar (){
     
   
     return(
-        <div className='bg-slate-200 w-full h-10 px-5 flex items-center '>
+        <div className='bg-slate-200 w-full h-10 px-5 flex items-center border-red-200 border-2 '>
 
         <div className=''>
            
             <Symbol getSymbol={getSymbol}></Symbol>
+
+
+            <ExpiryDate expiryDate={expiryDate}></ExpiryDate>
 
 
              {/* <select className='bg-slate-900 px-2 py-[2px] rounded-md  text-slate-300 mx-3 cursor-pointer'> 
