@@ -9,105 +9,76 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import axios from 'axios';
 import { UserContext } from "../../Context/Context"
-import { useContext, useState , useEffect} from "react";
+import { useContext, useState , useEffect ,useCallback} from "react";
 
-function DashBoard(){
+function DashBoard() {
+  const [optionChainData, setOptionChainData] = useState([]);
+  const userState = useContext(UserContext);
+  const symbol = userState.userSymbol;
+  const lot = userState.lot;
+  const expiry = userState.expiry;
 
-  const [optionChainData , setOptionChainData] = useState([])
-
-
-  const[columnName , setColumn] = useState([])
-
-  const userState = useContext(UserContext)
-  const symbol=userState.userSymbol
-  
-  const lot =userState.lot
-  const expiry =userState.expiry
-
-
-
-
-  const OptionChainData = async  () => {
-
+  const fetchOptionChainData = useCallback(async () => {
+    const url = `/api/optionChain/fetch-data?symbol=${symbol}&expiry=${expiry}&lotSize=${lot}`;
+    // console.log(url);
     
-    
-      // symbol.toString().toUpperCase()
-      // const expiryy=currentMonthDates[1] || null
-     
+    try {
+      const response = await axios.get(url);
       
-     
+      setOptionChainData(response.data.OptionChain);
+    } catch (error) {
+      console.error('Error fetching option chain data:', error);
+    }
+  }, [symbol, lot, expiry]);
 
-      // const url = `/api/optionChain/fetch-data?symbol=${symbol}&expiry=${expiry}&lotSize=${lot}`
-      // console.log(url)
-      
-      const response = await axios.get(`/api/optionChain/fetch-data?symbol=${symbol}&expiry=${expiry}&lotSize=${lot}`);
-      console.log(response.data.optionChainData)
-
-      setOptionChainData(response.data.OptionChain)
-      DataTable(optionChainData)
-
-      // You can also update some state with the fetched data if needed
-    
-    // const response = await axios.get(`/api/optionChain/fetch-data?symbol=${symbol}&expiry=${expiry}&lotSize=${lot}`);
-    //  console.log(response.data);
-  };
- 
-      
- 
-  function DataTable(){
-    // Extracting column names from the first object in the data array
-    const columns = optionChainData.length > 0 ? Object.keys(optionChainData[0]) : [];
-     setColumn(columns)
-  }
-
-useEffect(() => {
-
-    const interval = setInterval(OptionChainData, 3000);
-  
+  useEffect(() => {
+    const interval = setInterval(fetchOptionChainData, 3000);
     return () => clearInterval(interval);
- 
-   });
+  }, [fetchOptionChainData]);
 
+  useEffect(() => {
+    console.log(optionChainData);
+  }, [optionChainData]);
 
-
-  const newHeaderTitles = [
-    'I.V.','T.V.','Vega', 'Theta', 'Gamma', 'Delta',  'IV'  , 'OI Chg', 'OI ', 'Volume ', 'Chg (Pts)', 'LTP' ,  'REVERSAL', 
-    'STRIKE', 'REVERSAL',
-     'LTP','Chg (Pts)', 'VOLUME ', 'OI ',  'OI Chg', 'IV'  , 'Delta', 'Gamma', 'Theta', 'Vega','T.V.','I.V.'
+ const desiredColumns = [
+    'calIv','calTv','cvega', 'ctheta', 'cgamma', 'cdelta', 'civ','callOIchg', 'callOI', 'callVol', 'callltpchg', 'callltp','calReversal',
+    'strike','putReversal','putLTP' ,  'putLTPchg', 'putVol', 'putOI', 'putOIchg', 'piv','pdelta', 'pgamma', 'ptheta', 'pvega','putTv','putIv'
+];
+const newHeaderTitles = [
+  'I.V.','T.V.','Vega', 'Theta', 'Gamma', 'Delta',  'IV'  , 'OI Chg', 'OI ', 'Volume ', 'Chg (Pts)', 'LTP' ,  'REVERSAL', 
+  'STRIKE', 'REVERSAL',
+   'LTP','Chg (Pts)', 'VOLUME ', 'OI ',  'OI Chg', 'IV'  , 'Delta', 'Gamma', 'Theta', 'Vega','T.V.','I.V.'
     ];
 
 
-      
-      
-      
-    return(
-         <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-           <TableContainer component={Paper}>
-      <Table>
-        <TableHead>
-          <TableRow>
-            {newHeaderTitles.map((columnName , index) => (
-              <TableCell key={index}>{columnName}</TableCell>
-            ))}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {optionChainData.map((row, index) => (
-            <TableRow key={index}>
-              {columnName.map((columnName) => (
-                <TableCell key={columnName}>{row[columnName]}</TableCell>
+  return (
+    <div>
+      <h1>Testing-phase</h1>
+      {/* Uncomment and adapt this block for rendering option chain data */}
+      <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                {newHeaderTitles.map((columnName, index) => (
+                  <TableCell key={index}>{columnName}</TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {optionChainData.map((item, index) => (
+                <TableRow key={index}>
+                  {desiredColumns?.map((items, index) => (
+                    <TableCell key={index}>{item[items]}</TableCell>
+                  ))}
+                </TableRow>
               ))}
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  
-
-        
+            </TableBody>
+          </Table>
+        </TableContainer>
       </Paper>
-        
-    )
+    </div>
+  );
 }
 
-export default DashBoard
+export default DashBoard;
