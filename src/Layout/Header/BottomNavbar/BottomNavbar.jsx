@@ -4,14 +4,17 @@ import axios from 'axios';
 import { useState , useEffect} from 'react';
 import Symbol from './Button/Symbol';
 import ExpiryDate from './Button/ExpiryDate';
-
+import { UserContext } from '../../../Context/Context';
+import { useContext } from 'react';
 
 function BottomNavbar (){
 
 
     const [expiryDate , setExpiryDate]=useState([])  
 
-    const [value , setValue]=useState("")
+    const [value , setValue]=useState("NIFITY")
+
+    const userState = useContext(UserContext)
     
     function getSymbol (selectedValue){
 
@@ -24,10 +27,12 @@ function BottomNavbar (){
        
     const GetExpiryDate = async ()=>{
       try {
-        console.log("Making API call with value:", value); 
+        // console.log("Making API call with value:", value); 
         const response = await axios.get(`/api/optionChain/symbol-expiry?symbol=${value}`);
         console.log("API Response:", response.data); 
         setExpiryDate(response.data)
+        
+
     } catch (error) {
         console.error("Error fetching expiry date:", error);
     }
@@ -36,6 +41,7 @@ function BottomNavbar (){
     useEffect(() => {
       if (value) {
           GetExpiryDate();
+
       }
   }, [value]);
 
@@ -86,12 +92,12 @@ function BottomNavbar (){
             </select> */}
 
 
-             <select className='bg-slate-900 px-2 py-[2px] rounded-md text-slate-300 mx-3 cursor-pointer'>  <option value="TataSteel">ATM</option>
+             <select className='bg-slate-900 px-2 py-[2px]  text-slate-300 mx-3 cursor-pointer'>  <option value="TataSteel">ATM</option>
             <option value="All">All</option>
             </select>
 
 
-             <select className='bg-slate-900 px-2 py-[2px] rounded-md text-slate-300 mx-3 cursor-pointer'>  <option value="TataSteel">Spot</option>
+             <select className='bg-slate-900 px-2 py-[2px]  text-slate-300 mx-3 cursor-pointer'>  <option value="TataSteel">Spot</option>
           </select>
 
         </div>

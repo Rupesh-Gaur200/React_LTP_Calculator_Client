@@ -23,7 +23,7 @@ function Header() {
 
 
   return (
-    <div>
+    <div className='w-full h-full'>
 
       {/* Upper nav-bar Start Here */}
       <div className="w-full h-5 bg-slate-600 flex py-4 px-10  items-center">
@@ -40,7 +40,7 @@ function Header() {
 
       {/* Middle Navbar Start here */}
 
-      <div className="w-screen bg-[#212529] h-20 px-20 flex justify-between items-center ">
+      <div className="w-full bg-[#212529] h-20 px-20 flex justify-between items-center ">
 
         <div className="h-full">
           <img src="https://alpha.ltpcalculator.com/theme/images/logoltp.png" className=" h-full"></img>
