@@ -23,7 +23,7 @@ function ExpiryDate({expiryDate}){
       });
 
       const userState = useContext(UserContext)
-      userState.setExpiry(currentMonthDates[0])
+      userState.setExpiry(currentMonthDates[currentMonthDates.length-1])
     useEffect(()=>{
 
     },[expiryDate])

@@ -13,6 +13,8 @@ import { useContext, useState , useEffect ,useCallback} from "react";
 
 function DashBoard() {
   const [optionChainData, setOptionChainData] = useState([]);
+  const [selectedPrice , setSelectedPrice]= useState("")
+
   const userState = useContext(UserContext);
   const symbol = userState.userSymbol;
   const lot = userState.lot;
@@ -24,7 +26,7 @@ function DashBoard() {
     
     try {
       const response = await axios.get(url);
-      
+      setSelectedPrice(response.data)
       setOptionChainData(response.data.OptionChain);
     } catch (error) {
       console.error('Error fetching option chain data:', error);
@@ -53,7 +55,7 @@ const newHeaderTitles = [
 
   return (
     <div>
-      <h1>Testing-phase</h1>
+      <h1>Fetch Time : {optionChainData.length>0?optionChainData[0]['FetchTime']:"NO data"}</h1>
       {/* Uncomment and adapt this block for rendering option chain data */}
       <Paper sx={{ width: '100%', overflow: 'hidden' }}>
         <TableContainer component={Paper}>

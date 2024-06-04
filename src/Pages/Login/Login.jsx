@@ -7,7 +7,7 @@ import Checkbox from '@mui/material/Checkbox';
 import { useContext } from "react";
 import { UserContext } from "../../Context/Context";
 import TextField from '@mui/material/TextField';
-
+import logo from './LoginPageAssets/logoltp.png'
 function Login (){
      
     const [userName , setUsername] =useState("")
@@ -74,7 +74,7 @@ function Login (){
 
               <div className="w-48   ">
                 <a>
-                    <img className="" src="https://alpha.ltpcalculator.com/theme/images/logoltp.png"></img>
+                    <img className="" src={logo}></img>
                 </a>
                 </div>
 

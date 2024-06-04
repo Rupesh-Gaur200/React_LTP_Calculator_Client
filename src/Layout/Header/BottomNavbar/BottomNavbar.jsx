@@ -6,6 +6,7 @@ import Symbol from './Button/Symbol';
 import ExpiryDate from './Button/ExpiryDate';
 import { UserContext } from '../../../Context/Context';
 import { useContext } from 'react';
+import LiveHistory from './Button/LiveHistory';
 
 function BottomNavbar (){
 
@@ -100,8 +101,11 @@ function BottomNavbar (){
              <select className='bg-slate-900 px-2 py-[2px]  text-slate-300 mx-3 cursor-pointer'>  <option value="TataSteel">Spot</option>
           </select>
 
-        </div>
 
+          
+
+        </div>
+        <LiveHistory></LiveHistory>
     </div>
 
     )
