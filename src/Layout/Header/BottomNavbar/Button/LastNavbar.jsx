@@ -5,11 +5,12 @@ import { Box } from "@mui/material"
 import Paper from '@mui/material/Paper';
 import Drawer from '@mui/material/Drawer';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
-import DrawerContent from './DrawerInside/DrawerContent';
+import DrawerContent from './DrawerContent';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import IconButton from '@mui/material/IconButton';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
+
 function LastNavbar (){
 
      const [open, setOpen] = useState(false);
@@ -43,16 +44,9 @@ function LastNavbar (){
 
      return(
       <Box>
-        <Box className="bg-slate-300 flex justify-end" component="section" sx={{ p: 2, border: '1px dashed grey' }}>
-
-
-            
+        <Box className="flex justify-end" component="section" sx={{marginBottom:'1px'}} >
+     
               
-              
-               <Paper sx={{ textAlign: 'center', display:'flex' , justifyContent: 'center', alignItems:'center' , gap:1 , }}  elevation={24} >
-                 
-               
-                  </Paper>
               
                   <Fab onClick={handleClickDrawer} sx={{ borderRadius: '0px 0px 0px 0px ',}} variant="extended" size="small" color="string">
                   <ArrowLeftIcon  className="hover:cursor-pointer"></ArrowLeftIcon>

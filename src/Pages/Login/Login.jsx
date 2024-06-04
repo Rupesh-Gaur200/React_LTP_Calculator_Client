@@ -8,6 +8,9 @@ import { useContext } from "react";
 import { UserContext } from "../../Context/Context";
 import TextField from '@mui/material/TextField';
 import logo from './LoginPageAssets/logoltp.png'
+
+
+import LazyLoad from 'react-lazyload';
 function Login (){
      
     const [userName , setUsername] =useState("")
@@ -68,26 +71,29 @@ function Login (){
 
     return (
         <div className=" W-full h-screen bg-[url('https://ltp.investingdaddy.com/assets/images/newloginbg.jpg')] px-20 py-5">
-   
+    
+    
+            {/* Component for Rendering Image  and logo*/}
 
             <div className="w-[65%] relative  flex justify-between mb-3">
 
-              <div className="w-48   ">
-                <a>
-                    <img className="" src={logo}></img>
-                </a>
-                </div>
 
-                <div className="  absolute right-0 -top-5">
+       
+<div className="w-48   ">
+  <a>
+      <img className="" src={logo}></img>
+  </a>
+  </div>
 
-                <img className="w-[105px]"  src={sirImage}></img>
-                </div>
-            </div>
-            
+  <div className="  absolute right-0 -top-5">
+
+  <img className="w-[105px]"  src={sirImage}></img>
+  </div>
+</div>
 
             <div className="flex  w-full justify-between gap-5" >
 
-
+            {/* Login Review Component */}
             <div  className="bg-slate-200 w-[65%]   ">
 
 
@@ -95,7 +101,7 @@ function Login (){
 
 
 
-            </div>
+</div>
 
 
     <div className="w-1/3 h-full  flex flex-col gap-4 items-center">
@@ -117,9 +123,14 @@ function Login (){
 
             </form>
             </div>
+          
 
-            <iframe className="rounded-lg" width="432" height="220" src="https://www.youtube.com/embed/HVKrquUilDw" title="LTP CALCULATOR ON ZEE BUSINESS #Nifty #Stocks #Option #ltpcalculator  #LTPCALCULATORONZEEBUSINESS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+            <LazyLoad height={200} offset={100}>
+        {/* The height and offset props control when the image should start loading */}
+        <iframe className="rounded-lg" width="432" height="220" src="https://www.youtube.com/embed/HVKrquUilDw" title="LTP CALCULATOR ON ZEE BUSINESS #Nifty #Stocks #Option #ltpcalculator  #LTPCALCULATORONZEEBUSINESS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+      </LazyLoad>
+          {/* <LoginYoutube></LoginYoutube> */}
+           
         </div>
           
       

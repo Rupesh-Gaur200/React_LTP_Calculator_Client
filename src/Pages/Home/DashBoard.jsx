@@ -57,13 +57,15 @@ const newHeaderTitles = [
     <div>
       <h1>Fetch Time : {optionChainData.length>0?optionChainData[0]['FetchTime']:"NO data"}</h1>
       {/* Uncomment and adapt this block for rendering option chain data */}
-      <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-        <TableContainer component={Paper}>
+      <Paper elevation={24} sx={{ width: '100%', overflow: 'hidden' }}>
+        <TableContainer sx={{p:1,
+          minWidth:400
+        }}component={Paper}>
           <Table>
             <TableHead>
               <TableRow>
                 {newHeaderTitles.map((columnName, index) => (
-                  <TableCell key={index}>{columnName}</TableCell>
+                  <TableCell  key={index}>{columnName}</TableCell>
                 ))}
               </TableRow>
             </TableHead>

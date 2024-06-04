@@ -7,7 +7,7 @@ import { UserContext } from "../../Context/Context"
 import { useContext, useState } from "react";
 import DashBoard from '../../Pages/Home/DashBoard';
 import BottomNavbar from './BottomNavbar/BottomNavbar';
-import LastNavbar from './LastNavbar/LastNavbar';
+
 
 function Header() {
 
@@ -42,7 +42,7 @@ function Header() {
 
       <div className="w-full bg-[#212529] h-20 px-20 flex justify-between items-center ">
 
-        <div className="h-full">
+        <div className="h-[75%]">
           <img src="https://alpha.ltpcalculator.com/theme/images/logoltp.png" className=" h-full"></img>
         </div>
 
@@ -64,7 +64,7 @@ function Header() {
 
       <BottomNavbar></BottomNavbar>
 
-      <LastNavbar></LastNavbar>
+
 
       <DashBoard></DashBoard>
     </div>

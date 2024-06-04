@@ -7,6 +7,7 @@ import ExpiryDate from './Button/ExpiryDate';
 import { UserContext } from '../../../Context/Context';
 import { useContext } from 'react';
 import LiveHistory from './Button/LiveHistory';
+import LastNavbar from './Button/LastNavbar';
 
 function BottomNavbar (){
 
@@ -68,44 +69,24 @@ function BottomNavbar (){
     
   
     return(
-        <div className='bg-slate-200 w-full h-10 px-5 flex items-center border-red-200 border-2 '>
-
+        <div className='bg-slate-200 w-full h-10 px-5 py-3 flex items-center   justify-between'>
+         <LiveHistory></LiveHistory>
+      <div className='flex items-center'>
+     
         <div className=''>
-           
             <Symbol getSymbol={getSymbol}></Symbol>
-
-
             <ExpiryDate expiryDate={expiryDate}></ExpiryDate>
-
-
-             {/* <select className='bg-slate-900 px-2 py-[2px] rounded-md  text-slate-300 mx-3 cursor-pointer'> 
-              
-              {data?.map((item,index)=>{
-                
-                return(
-                    <option value="TataSteel">{item}</option>
-
-                )
-
-              })}
-              
-              
-            </select> */}
-
 
              <select className='bg-slate-900 px-2 py-[2px]  text-slate-300 mx-3 cursor-pointer'>  <option value="TataSteel">ATM</option>
             <option value="All">All</option>
             </select>
 
-
              <select className='bg-slate-900 px-2 py-[2px]  text-slate-300 mx-3 cursor-pointer'>  <option value="TataSteel">Spot</option>
           </select>
-
-
-          
-
         </div>
-        <LiveHistory></LiveHistory>
+        <LastNavbar ></LastNavbar>
+        </div>
+   
     </div>
 
     )
