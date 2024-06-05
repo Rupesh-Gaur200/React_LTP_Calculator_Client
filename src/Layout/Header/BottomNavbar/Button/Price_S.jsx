@@ -12,7 +12,7 @@ function Price_S (){
 
     return(
         <div disabled className='bg-blue-600 px-2 py-[3px] rounded-[3px]  w-[150px] text-sm text-center text-slate-300 cursor-pointer'> 
-                    <option  value={price_S.fetchPrice}>{price_S.fetchPrice==undefined?"No Data":price_S.fetchPrice}</option>  
+                    <option  value={price_S.fetchPrice}>{price_S.fetchPrice==null?"No Data":price_S.fetchPrice}</option>  
       </div>
     )
 }

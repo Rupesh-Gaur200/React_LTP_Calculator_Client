@@ -1,4 +1,3 @@
-
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import { useState , useEffect} from 'react';
@@ -7,7 +6,7 @@ import ExpiryDate from './Button/ExpiryDate';
 import { UserContext } from '../../../Context/Context';
 import { useContext } from 'react';
 import LiveHistory from './Button/LiveHistory';
-import LastNavbar from './Button/LastNavbar';
+
 import Price_S from './Button/Price_S';
 import CompareNavbar from './Button/CompareNavbar';
 import FetchTime from './Button/FetchTime';

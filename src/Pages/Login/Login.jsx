@@ -70,7 +70,7 @@ function Login (){
 
 
     return (
-        <div className=" W-full h-screen bg-[url('https://ltp.investingdaddy.com/assets/images/newloginbg.jpg')] px-20 py-5">
+        <div className=" W-full h-screen bg-[url('https://ltp.investingdaddy.com/assets/images/newloginbg.jpg')] px-20 py-4 ">
     
     
             {/* Component for Rendering Image  and logo*/}
@@ -91,7 +91,7 @@ function Login (){
   </div>
 </div>
 
-            <div className="flex  w-full justify-between gap-5" >
+            <div className="flex  w-full justify-between gap-5 " >
 
             {/* Login Review Component */}
             <div  className="bg-slate-200 w-[65%]   ">

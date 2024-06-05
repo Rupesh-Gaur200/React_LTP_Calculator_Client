@@ -74,6 +74,83 @@ const ReversalDesiredColumn=[
     'strike', 'putReversal', 'putLTP', 'putLTPchg', 'putVol', 'putOI', 'putOIchg', 'piv', 
   
 ]
+ 
+ const VegaDesiredColumn=[
+
+  'Vega', 'civ', 'callOIchg', 'callOI', 'callVol', 'callltpchg', 'callltp', 'calReversal',
+  'strike', 'putReversal', 'putLTP', 'putLTPchg', 'putVol', 'putOI', 'putOIchg', 'piv', 'Vega'
+ ]
+
+ const VegaColumn=[
+     
+ 'Vega', 'IV', 'OI Chg', 'OI', 'Volume', 'Chg (Pts)', 'LTP', 'REVERSAL',
+  'STRIKE', 'REVERSAL', 'LTP', 'Chg (Pts)', 'VOLUME', 'OI', 'OI Chg', 'IV','Vega'
+
+ ]
+
+
+
+
+
+const ThetaDesiredColumn =[
+  'ctheta','civ', 'callOIchg', 'callOI', 'callVol', 'callltpchg', 'callltp', 'calReversal',
+  'strike', 'putReversal', 'putLTP', 'putLTPchg', 'putVol', 'putOI', 'putOIchg', 'piv','ptheta'
+
+]
+
+const ThetaColumn=[
+
+  'Theta', 'IV', 'OI Chg', 'OI', 'Volume', 'Chg (Pts)', 'LTP', 'REVERSAL',
+  'STRIKE', 'REVERSAL', 'LTP', 'Chg (Pts)', 'VOLUME', 'OI', 'OI Chg', 'IV','Theta'
+
+]
+
+
+
+const GammaDesiredColumn=[
+  'cgamma','civ', 'callOIchg', 'callOI', 'callVol', 'callltpchg', 'callltp', 'calReversal',
+  'strike', 'putReversal', 'putLTP', 'putLTPchg', 'putVol', 'putOI', 'putOIchg', 'piv','pgamma'
+
+]
+const GammaColumn=[
+
+  'Gamma','IV', 'OI Chg', 'OI', 'Volume', 'Chg (Pts)', 'LTP', 'REVERSAL',
+  'STRIKE', 'REVERSAL', 'LTP', 'Chg (Pts)', 'VOLUME', 'OI', 'OI Chg', 'IV','Gamma'
+]
+
+
+
+
+
+const DeltaDesiredColumn=[
+
+  'cdelta','civ', 'callOIchg', 'callOI', 'callVol', 'callltpchg', 'callltp', 'calReversal',
+  'strike', 'putReversal', 'putLTP', 'putLTPchg', 'putVol', 'putOI', 'putOIchg', 'piv','pdelta'
+]
+
+const DeltaColumn=[
+  'Delta','IV', 'OI Chg', 'OI', 'Volume', 'Chg (Pts)', 'LTP', 'REVERSAL',
+  'STRIKE', 'REVERSAL', 'LTP', 'Chg (Pts)', 'VOLUME', 'OI', 'OI Chg', 'IV','Delta'
+]
+
+
+
+
+const Iv_TvColumnDes=[
+  'calIv', 'calTv', 'civ', 'callOIchg', 'callOI', 'callVol', 'callltpchg', 'callltp', 'calReversal',
+  'strike', 'putReversal', 'putLTP', 'putLTPchg', 'putVol', 'putOI', 'putOIchg', 'piv','putTv', 'putIv'
+
+]
+const Iv_TvColumn=[
+
+  'IV', 'OI Chg', 'OI', 'Volume', 'Chg (Pts)', 'LTP', 'REVERSAL',
+  'STRIKE', 'REVERSAL', 'LTP', 'Chg (Pts)', 'VOLUME', 'OI', 'OI Chg', 'IV',
+
+]
+
+
+
+
 
 
   return (
@@ -82,8 +159,8 @@ const ReversalDesiredColumn=[
       {/* Render option chain data in a table */}
       <Paper elevation={24} sx={{ width: '100%', overflow: 'hidden' }}>
         <TableContainer sx={{ p: 1, minWidth: 400 }} component={Paper}>
-          <Table>
-            <TableHead>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead >
               <TableRow>
                 {ReversalColumns.map((columnName, index) => (
                   <TableCell
@@ -91,7 +168,10 @@ const ReversalDesiredColumn=[
                     sx={{
                       backgroundColor: columnName === 'STRIKE' ? 'orange' : 'inherit',
                       color: columnName === 'STRIKE' ? 'white' : 'inherit',
-                      fontWeight: columnName === 'STRIKE' ? 'bold' : 'inherit'
+                      fontWeight: columnName === 'STRIKE' ? 'bold' : 'inherit',
+                      position: 'sticky',
+                      top: 0,
+                      zIndex: 1,
                     }}
                   >
                     {columnName}
@@ -118,6 +198,7 @@ const ReversalDesiredColumn=[
                             backgroundColor: column === 'strike' ? 'orange' : 'inherit',
                             color: column === 'strike' ? 'white' : 'inherit',
                             fontWeight: column === 'strike' ? 'bold' : 'inherit'
+                           
                           }}
                         >
                           {item[column]}

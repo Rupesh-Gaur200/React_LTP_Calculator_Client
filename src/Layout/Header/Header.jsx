@@ -9,8 +9,12 @@ import DashBoard from '../../Pages/Home/DashBoard';
 import BottomNavbar from './BottomNavbar/BottomNavbar';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { styled } from '@mui/material/styles';
-
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import DrawerContent from './BottomNavbar/Button/DrawerContent';
 import UpperNavbar from './UpperNavbar/UpperNavbar';
+import LastLowerNavbar from './LastLowerNavbar/LastLowerNavbar';
 
 
 const CustomIcon = styled(SettingsOutlinedIcon)(({ theme }) => ({
@@ -75,6 +79,25 @@ function Header() {
 
          
      <CustomIcon onClick={handleClickDrawer} className='hover:cursor-pointer'><SettingsOutlinedIcon ></SettingsOutlinedIcon></CustomIcon>
+     <Drawer  open={open} anchor={'right'}    sx={{
+                '& .MuiDrawer-paper': {
+                    width: '300px', 
+                    background: '#eaeaea]', 
+                    color: '#000', 
+                    borderRadius: '0px 0px 0px 0px ',
+                   
+                },
+            }}>
+               <Button onClick={handleClickDrawer} component="section" sx={{ p: 2, border: '1px dashed grey' }}>
+            <ChevronLeftIcon></ChevronLeftIcon>
+        Click to close the Drawer
+              </Button >
+
+
+                <DrawerContent></DrawerContent>
+        
+      </Drawer>  
+
         </div>
 
       </div>
@@ -83,7 +106,7 @@ function Header() {
 
       <BottomNavbar></BottomNavbar>
 
-
+      <LastLowerNavbar></LastLowerNavbar>
 
       <DashBoard></DashBoard>
     </div>
