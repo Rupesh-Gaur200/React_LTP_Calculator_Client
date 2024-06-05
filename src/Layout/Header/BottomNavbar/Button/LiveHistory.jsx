@@ -14,7 +14,7 @@ function LiveHistory(){
             {/* <div className='border-2 border-red-950 h-full'></div> */}
 
              <form className='w-full h-full flex items-center'>
-             <Switch  defaultChecked />  
+             <Switch color='warning'  defaultChecked />  
              
             
          

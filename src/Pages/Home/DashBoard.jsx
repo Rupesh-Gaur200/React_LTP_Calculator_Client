@@ -61,6 +61,21 @@ function DashBoard() {
     'STRIKE', 'REVERSAL', 'LTP', 'Chg (Pts)', 'VOLUME', 'OI', 'OI Chg', 'IV', 'Delta', 'Gamma', 'Theta', 'Vega', 'T.V.', 'I.V.'
   ];
 
+ const ReversalColumns =[
+  'IV', 'OI Chg', 'OI', 'Volume', 'Chg (Pts)', 'LTP', 'REVERSAL',
+  'STRIKE', 'REVERSAL', 'LTP', 'Chg (Pts)', 'VOLUME', 'OI', 'OI Chg', 'IV',
+
+ ]
+
+const ReversalDesiredColumn=[
+
+  
+   'civ', 'callOIchg', 'callOI', 'callVol', 'callltpchg', 'callltp', 'calReversal',
+    'strike', 'putReversal', 'putLTP', 'putLTPchg', 'putVol', 'putOI', 'putOIchg', 'piv', 
+  
+]
+
+
   return (
     <div>
       {/* <h1>Fetch Time : {optionChainData.length > 0 ? optionChainData[0]['FetchTime'] : "No data"}</h1> */}
@@ -70,7 +85,7 @@ function DashBoard() {
           <Table>
             <TableHead>
               <TableRow>
-                {newHeaderTitles.map((columnName, index) => (
+                {ReversalColumns.map((columnName, index) => (
                   <TableCell
                     key={index}
                     sx={{
@@ -126,7 +141,7 @@ function DashBoard() {
                       </TableRow>
                     )}
                     <TableRow>
-                      {desiredColumns.map((column, colIndex) => (
+                      {ReversalDesiredColumn.map((column, colIndex) => (
                         <TableCell
                           key={colIndex}
                           sx={{
