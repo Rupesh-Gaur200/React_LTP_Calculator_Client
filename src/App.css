@@ -1,42 +1,409 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Header Height */
+:root {
+  --cnvs-themecolor: #ff5a00;
+  --cnvs-themecolor-rgb: 255, 90, 0;
+  --bs-link-color: var(--cnvs-themecolor);
+  --bs-link-color-rgb: var(--cnvs-themecolor-rgb);
+  --bs-link-hover-color: var(--cnvs-heading-color);
+  --cnvs-white: #fff;
+  --cnvs-black: #000;
+  --cnvs-body-bg: var(--bs-body-bg);
+  --cnvs-body-bg-boxed: var(--cnvs-contrast-0);
+  --cnvs-headings-font-weight: 500;
+  --cnvs-before-heading-font: normal 400 1.0625rem var(--cnvs-secondary-font);
+  /* Font Families */
+  --cnvs-body-font: "Lato", sans-serif;
+  --cnvs-primary-font: "Lato", sans-serif;
+  --cnvs-secondary-font: "Montserrat", serif;
+  --cnvs-line-height-base: 1.5;
+  --cnvs-line-height-content: 1.65;
+  /* Margins */
+  --cnvs-margin-base: 3rem;
+  --cnvs-margin-sm: 2rem;
+  --cnvs-margin-lg: 5rem;
+  --cnvs-content-padding: 5rem;
+  --cnvs-section-margin: 4rem;
+  --cnvs-section-padding: var(--cnvs-section-margin);
+  --cnvs-col-padding: var(--cnvs-section-padding);
+  --cnvs-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --cnvs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --cnvs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  --cnvs-copyrights-font-size: 0.875rem;
+  --bs-bg-opacity: 1;
+  /* Header Height */
+  --cnvs-header-height: 100px;
+  --cnvs-header-height-sm: 70px;
+  --cnvs-header-height-md: 80px;
+  --cnvs-header-height-lg: 140px;
+  --cnvs-header-height-shrink: 60px;
+  --cnvs-side-header-width: 260px;
+  --cnvs-side-header-padding-gutters: 30px;
+  --cnvs-side-panel-size: 300px;
+  --cnvs-side-panel-padding: 50px 70px 50px 40px;
+  --cnvs-side-panel-widget-padding: 40px;
+  --cnvs-transitions: 0.5s ease;
+  /* Social Colors */
+  --cnvs-color-facebook: #3b5998;
+  --cnvs-color-whatsapp: #25d366;
+  --cnvs-color-delicious: #205cc0;
+  --cnvs-color-paypal: #00588b;
+  --cnvs-color-waze: #05c8f7;
+  --cnvs-color-android: #a4c639;
+  --cnvs-color-googledrive: #1fa463;
+  --cnvs-color-wikipedia: #333;
+  --cnvs-color-stumbleupon: #f74425;
+  --cnvs-color-foursquare: #25a0ca;
+  --cnvs-color-call: #444;
+  --cnvs-color-ninetyninedesigns: #f26739;
+  --cnvs-color-forrst: #5b9a68;
+  --cnvs-color-digg: #191919;
+  --cnvs-color-spotify: #1db954;
+  --cnvs-color-reddit: #c6c6c6;
+  --cnvs-color-blogger: #fc4f08;
+  --cnvs-color-cc: #688527;
+  --cnvs-color-dribbble: #ea4c89;
+  --cnvs-color-evernote: #5ba525;
+  --cnvs-color-flickr: #ff0084;
+  --cnvs-color-google: #4885ed;
+  --cnvs-color-salesforce: #1798c1;
+  --cnvs-color-cloudflare: #f38020;
+  --cnvs-color-linkedin: #0e76a8;
+  --cnvs-color-vk: #2b587a;
+  --cnvs-color-rss: #ee802f;
+  --cnvs-color-skype: #00aff0;
+  --cnvs-color-twitter: #00acee;
+  --cnvs-color-youtube: #c4302b;
+  --cnvs-color-vimeo: #86c9ef;
+  --cnvs-color-slack: #ecb22e;
+  --cnvs-color-yahoo: #720e9e;
+  --cnvs-color-email3: #6567a5;
+  --cnvs-color-macstore: #333333;
+  --cnvs-color-figma: #ab7c63;
+  --cnvs-color-podcast: #e4b21b;
+  --cnvs-color-meetup: #e51937;
+  --cnvs-color-dropbox: #3d9ae8;
+  --cnvs-color-ebay: #89c507;
+  --cnvs-color-github: #171515;
+  --cnvs-color-googleplay: #3bccff;
+  --cnvs-color-itunes: #222;
+  --cnvs-color-periscope: #52677b;
+  --cnvs-color-meta: #0668e1;
+  --cnvs-color-soundcloud: #ff7700;
+  --cnvs-color-tumblr: #34526f;
+  --cnvs-color-wordpress: #1e8cbe;
+  --cnvs-color-yelp: #c41200;
+  --cnvs-color-microsoft: #f65314;
+  --cnvs-color-trello: #0079bf;
+  --cnvs-color-scribd: #666666;
+  --cnvs-color-stripe: #008cdd;
+  --cnvs-color-print: #111;
+  --cnvs-color-btc: #f2a900;
+  --cnvs-color-weibo: #df2029;
+  --cnvs-color-acrobat: #d3222a;
+  --cnvs-color-drupal: #27537a;
+  --cnvs-color-buffer: #333333;
+  --cnvs-color-pocket: #ee4056;
+  --cnvs-color-bitbucket: #0e4984;
+  --cnvs-color-stackoverflow: #ef8236;
+  --cnvs-color-hackernews: #ff6600;
+  --cnvs-color-xing: #126567;
+  --cnvs-color-instagram: #8a3ab9;
+  --cnvs-color-quora: #a82400;
+  --cnvs-color-openid: #e16309;
+  --cnvs-color-steam: #111;
+  --cnvs-color-amazon: #e47911;
+  --cnvs-color-line: #00b900;
+  --cnvs-color-kickstarter: #87c442;
+  --cnvs-color-appstore: #000;
+  --cnvs-color-pinterest: #c8232c;
+  --cnvs-color-fivehundredpx: #111;
+  --cnvs-color-tiktok: #000;
+  --cnvs-color-airbnb: #ff5a5f;
+  --cnvs-color-gpay: #6877df;
+  --cnvs-color-unsplash: #111;
+  --cnvs-color-snapchat: #fffc00;
+  --cnvs-color-discord: #7289da;
+  --cnvs-color-twitch: #6441a5;
+  --cnvs-font-size-body: var(--bs-body-font-size);
+  --cnvs-font-size-h1: 2.25rem;
+  --cnvs-font-size-h2: 1.875rem;
+  --cnvs-font-size-h3: 1.5rem;
+  --cnvs-font-size-h4: 1.125rem;
+  --cnvs-font-size-h5: 0.875rem;
+  --cnvs-font-size-h6: 0.75rem;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.bg-header {
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 90, 0, 0.21621148459383754) 100%
+  );
+}
+
+a.menu-link {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+table.ltp-chain-data-table {
+  font-size: 13px;
   text-align: center;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+}
+#top-bar {
+  --cnvs-topbar-height: 28px;
+  --cnvs-topbar-font-size: 0.875rem;
+  --cnvs-topbar-font-weight: 500;
+  --cnvs-topbar-font-transform: none;
+  --cnvs-topbar-color: var(--cnvs-contrast-700);
+  --cnvs-topbar-border-size: 1px;
+  --cnvs-topbar-border-color: rgba(var(--cnvs-contrast-rgb), 0.1);
+  --cnvs-topbar-social-icon-color: var(--cnvs-contrast-600);
+  --cnvs-topbar-submenu-padding: 0.625rem;
+  --cnvs-topbar-submenu-font-size: 0.75rem;
+  position: relative;
+  border-bottom: var(--cnvs-topbar-border-size) solid
+    var(--cnvs-topbar-border-color);
+  font-size: var(--cnvs-topbar-font-size);
+  background-color: var(--cnvs-topbar-bg);
+}
+#top-cart {
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  margin-top: 15px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.is-expanded-menu .full-header #logo,
+.is-expanded-menu .full-header .primary-menu .menu-container {
+  border-right: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.top-cart-content {
+  height: auto;
+}
+
+.i-style {
+  font-size: 1.15rem !important;
+}
+
+.i-style,
+.i-bordered,
+.i-plain {
+  --cnvs-i-size: 1.75rem;
+}
+.top-cart-open .top-cart-content {
+  top: 41px !important;
+  right: -120px !important;
+}
+
+.top-cart-number {
+  right: 6px;
+  top: -6px;
+  font-size: 0.55rem;
+  width: 16px;
+  height: 16px;
+  line-height: 1rem;
+}
+
+.fs-9 {
+  font-size: 0.85rem !important;
+}
+.fs-75 {
+  font-size: 0.75rem !important;
+}
+
+.fs-65 {
+  font-size: 0.65rem !important;
+}
+
+table.ltp-chain-data-table td strong {
+  font-weight: 900;
+}
+
+table.ltp-chain-data-table tbody td {
+  padding: 4px 3px;
+}
+
+table.ltp-chain-data-table thead tr th {
+  font-size: 12.5px;
+  padding: 5px 0;
+}
+
+table.ltp-chain-data-table thead tr.sub-th th {
+  font-size: 12px;
+  font-weight: 900;
+}
+
+table.ltp-chain-data-table td {
+  color: #495057;
+}
+
+table.ltp-chain-data-table th {
+  font-weight: 500;
+}
+
+.strike_price,
+.bg-orrange {
+  background: rgb(241, 135, 19) !important;
+  background-image: var(--bs-gradient) !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  position: sticky;
+  position: -webkit-sticky;
+  left: 0;
+  right: 0;
+}
+
+.ltp-chain-data-table tr td:nth-child(11n) td {
+  border-width: 0 !important;
+}
+
+.bg-out-of-money {
+  background: #e6e6e6 !important;
+}
+
+.audio {
+  height: 45px;
+  width: 97%;
+  display: block;
+}
+
+form-group > label.error {
+  display: block !important;
+  text-transform: none;
+}
+.form-select-sm,
+.form-input-sm {
+  font-size: 0.9rem !important;
+  padding: 3px 10px !important;
+  font-weight: 900;
+  margin: 0;
+}
+
+.form-control-sm {
+  font-size: 0.8rem !important;
+  padding: 3px 10px !important;
+  font-weight: 900;
+  margin: 0;
+}
+
+.form-input-mini {
+  font-size: 0.65rem !important;
+  padding: 1px 2px 1px 5px;
+  font-weight: 900;
+  text-transform: uppercase;
+  width: 100px !important;
+}
+
+.form-group input.valid ~ label.error,
+.form-group input[type="text"] ~ label.error,
+.form-group input[type="email"] ~ label.error,
+.form-group input[type="number"] ~ label.error,
+.form-group select ~ label.error {
+  display: none !important;
+}
+
+.coa2_2x2 {
+  min-width: 250px !important;
+}
+.toggle-columns.active {
+  background-color: var(--cnvs-themecolor) !important;
+  color: #fff;
+}
+
+.toggle-columns {
+  background-color: #333333;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.callVol:hover,
+.putVol:hover {
+  cursor: pointer;
+}
+
+.text-success {
+  color: rgb(0, 128, 0) !important;
+}
+
+.fs-mid {
+  font-size: 0.75rem;
+}
+
+.fs-9 {
+  font-size: 0.9rem;
+}
+
+.fs-big {
+  font-size: 1.05rem;
+}
+
+#logo a .logo-default {
+  display: flex;
+  height: 60px !important;
+  width: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#page-menu.sticky-page-menu:not(.dots-menu) #page-menu-wrap {
+  top: 70px;
+  padding-top: 5px;
+}
+@media (max-width: 767px) {
+  /* Adjust the max-width value based on your mobile breakpoint */
+  #page-menu.sticky-page-menu:not(.dots-menu) #page-menu-wrap {
+    top: 75px;
   }
-  to {
-    transform: rotate(360deg);
+  #header {
+    height: 75px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.table-responsive {
+  position: relative; /* Ensure the parent container is positioned */
+}
+
+#thead {
+  position: sticky;
+  bottom: 0; /* Stick to the bottom of the .table-responsive container */
+  background-color: white; /* Optional: to ensure the header is visible over the table rows */
+  z-index: 1; /* Optional: to ensure the header is above the table rows */
+}
+.table-responsive {
+  max-height: 800px; /* Adjust according to your needs */
+  overflow-y: auto;
+  position: relative;
+  /* Hide scrollbar for Webkit, Edge, and IE */
+  &::-webkit-scrollbar {
+    display: none;
   }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-.card {
-  padding: 2em;
+.page-menu-item {
+  margin: 2px;
 }
 
-.read-the-docs {
-  color: #888;
+.mt-n1 {
+  margin-top: -0.25rem !important;
+}
+
+.mt-n2 {
+  margin-top: -0.5rem !important;
 }

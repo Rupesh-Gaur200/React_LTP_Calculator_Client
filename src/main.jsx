@@ -9,6 +9,8 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "react-query";
+
+
 const queryClient = new QueryClient();
 import { UserProvider } from "./Context/Context.jsx";
 ReactDOM.createRoot(document.getElementById('root')).render(

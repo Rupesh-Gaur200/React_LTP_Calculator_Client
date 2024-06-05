@@ -8,6 +8,9 @@ import { UserContext } from '../../../Context/Context';
 import { useContext } from 'react';
 import LiveHistory from './Button/LiveHistory';
 import LastNavbar from './Button/LastNavbar';
+import Price_S from './Button/Price_S';
+import CompareNavbar from './Button/CompareNavbar';
+import FetchTime from './Button/FetchTime';
 
 function BottomNavbar (){
 
@@ -69,23 +72,30 @@ function BottomNavbar (){
     
   
     return(
-        <div className='bg-slate-200 w-full h-10 px-5 py-3 flex items-center   justify-between'>
-         <LiveHistory></LiveHistory>
-      <div className='flex items-center'>
-     
-        <div className=''>
-            <Symbol getSymbol={getSymbol}></Symbol>
-            <ExpiryDate expiryDate={expiryDate}></ExpiryDate>
+        <div className='bg-slate-200 w-full h-10  py-3 flex items-center  justify-between'>
+         
+        
+      
+      <div className='flex items-center gap-[6px]'>
+      <LiveHistory></LiveHistory>
+        
+        <Symbol getSymbol={getSymbol}></Symbol>
+        <ExpiryDate expiryDate={expiryDate}></ExpiryDate>
 
-             <select className='bg-slate-900 px-2 py-[2px]  text-slate-300 mx-3 cursor-pointer'>  <option value="TataSteel">ATM</option>
-            <option value="All">All</option>
-            </select>
+         <select className='bg-slate-900 px-2 py-[3px] rounded-[3px] text-slate-300 font-bold text-center cursor-pointer'>  <option value="TataSteel">ATM</option>
+        <option value="All">All</option>
+        </select>
 
-             <select className='bg-slate-900 px-2 py-[2px]  text-slate-300 mx-3 cursor-pointer'>  <option value="TataSteel">Spot</option>
-          </select>
-        </div>
-        <LastNavbar ></LastNavbar>
-        </div>
+         <select className='bg-slate-900 px-2 py-[3px] rounded-[3px] text-slate-300 font-bold text-center cursor-pointer'>  <option value="TataSteel">Spot</option>
+      </select>
+
+      <Price_S></Price_S>
+   
+    </div>     
+    
+    <div> <FetchTime></FetchTime>   </div>
+    
+        <CompareNavbar></CompareNavbar>
    
     </div>
 

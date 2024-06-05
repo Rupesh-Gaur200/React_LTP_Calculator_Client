@@ -8,7 +8,7 @@ import { useContext, useState } from "react";
 import DashBoard from '../../Pages/Home/DashBoard';
 import BottomNavbar from './BottomNavbar/BottomNavbar';
 
-
+import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 function Header() {
 
   const navigate = useNavigate()
@@ -26,7 +26,7 @@ function Header() {
     <div className='w-full h-full'>
 
       {/* Upper nav-bar Start Here */}
-      <div className="w-full h-5 bg-slate-600 flex py-4 px-10  items-center">
+      <div className="w-full h-5 bg-slate-600 flex py-3 px-10  items-center">
         <div className="flex items-center">
           <h1 className="text-[#fff] text-sm">Welcome Back </h1>
           <strong className="text-[#fff] mx-2">{userState.user?.user.username}</strong>
@@ -56,6 +56,8 @@ function Header() {
             <button onClick={handleLogout} className='text-slate-200'>
               Logout  <LogoutIcon className='scale-x-[-1]' /> </button>
           </div>
+
+           <SettingsApplicationsIcon></SettingsApplicationsIcon>
         </div>
 
       </div>

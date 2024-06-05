@@ -32,7 +32,7 @@ function ExpiryDate({expiryDate}){
     // console.log(currentMonth+1)
     return(
      
-        <select className='bg-slate-900 px-2 py-[2px] mb-1 text-slate-300 mx-3 cursor-pointer'> 
+        <select className='bg-slate-900 px-2 py-[3px] rounded-[3px]  font-bold text-center text-slate-300 cursor-pointer'> 
               
         {currentMonthDates?.map((item , index)=>{
 
