@@ -20,10 +20,10 @@ function ExpiryDate({expiryDate}){
     const currentMonthDates = expiryDate?.filter(dateString => {
         const { month, year } = parseDate(dateString);
         return month === currentMonth && year === currentYear;
-      });
+      }).reverse();
 
       const userState = useContext(UserContext)
-      userState.setExpiry(currentMonthDates[currentMonthDates.length-1])
+      userState.setExpiry(currentMonthDates[0])
     useEffect(()=>{
 
     },[expiryDate])

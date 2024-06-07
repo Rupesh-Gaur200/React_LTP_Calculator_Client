@@ -14,7 +14,7 @@ function BottomNavbar (){
 
     const [expiryDate , setExpiryDate]=useState([])  
 
-    const [value , setValue]=useState("NIFITY")
+    const [value , setValue]=useState("NIFTY")
  
     function getSymbol (selectedValue){
 
@@ -47,8 +47,7 @@ function BottomNavbar (){
     }
 
 
-      GetExpiryDate()
-
+    
 
 
     useEffect(() => {
