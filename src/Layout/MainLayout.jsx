@@ -11,14 +11,17 @@ function MainLayout(){
         
         <div className="relative  w-full ">
         <Header  />
+
         <div className="flex fixed">
-       
           <div className="flex-1">
             <div className="w-full h-full overflow-y-auto bg-gray-200">
               <Outlet />
             </div>
+
           </div>
+
         </div>
+
       </div>
 
 

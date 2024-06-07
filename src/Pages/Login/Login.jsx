@@ -16,15 +16,13 @@ function Login (){
     const [userName , setUsername] =useState("")
 
     const [Password , setPassword] = useState("")
-
-    const[userr , setUserr]=useState()
-   
      const navigate =useNavigate()
      const userState =useContext(UserContext)
   
-
-
-     const credentials = btoa(`${userName}:${Password}`);
+      const userNamee="ltpjava"
+      const Passwordd="R$az!fQ?ui6%I5h&kn1"
+  
+     const credentials = btoa(`${userNamee}:${Passwordd}`);
     
   async function handleClick(e){
           
@@ -32,7 +30,7 @@ function Login (){
      
 
         try {
-          const response = await axios.get('/api/currentUser',{
+          const response = await axios.get('/api/login',{
       
             headers: {
               'Authorization': `Basic ${credentials}`,
@@ -45,7 +43,7 @@ function Login (){
       
           
 
-      if(response.status==200){
+      if(response.status===200){
       const userdata= response.data
       console.log(userdata)
       userState.setUser(userdata);

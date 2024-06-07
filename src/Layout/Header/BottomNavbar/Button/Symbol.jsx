@@ -6,16 +6,26 @@ import { UserContext } from "../../../../Context/Context"
 import { useContext } from "react";
 
 function Symbol ({getSymbol}){
-    const[ selectedValue , setSelectedValue]=useState("")
+    const[ selectedValue , setSelectedValue]=useState("NIFTY")
 
     const userState =useContext(UserContext)
     
     userState.setUserSymbol(selectedValue);
 
-    
+    const userName="ltpjava"
+    const Password="R$az!fQ?ui6%I5h&kn1"
+
+    const credentials = btoa(`${userName}:${Password}`);
      
     const GetSybmol = async () => {
-        const response = await axios.get('/api/optionChain/all-symbol');
+        const response = await axios.get('/api/optionChain/all-symbol',{
+      
+        headers: {
+          'Authorization': `Basic ${credentials}`,
+          'Content-Type': '*/*',
+        },
+
+      });
         return response.data;
       };
 
@@ -70,7 +80,7 @@ function Symbol ({getSymbol}){
 
     return (
 
-        <select className='bg-slate-900 px-[2px] py-[3px] rounded-[3px] font-bold text-center text-slate-300  cursor-pointer'
+        <select value={selectedValue} className='bg-slate-900 px-[2px] py-[3px] rounded-[3px] font-bold text-center text-slate-300  cursor-pointer'
             
         onChange={(e)=>setSelectedValue(e.target.value)}>
 
